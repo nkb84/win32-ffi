@@ -60,7 +60,7 @@ export const SecureDynamicLibrary = function (path?: string, mode?: number) {
 
 	this._path = path;
 	this._handle = dlopen(path, mode);
-	assert(Buffer.isBuffer(this._handle), 'expected a Buffer instance to be returned from `dlopen()`');
+	assert(ref.isAddress(this._handle), 'expected a Buffer or PointerBuffer instance to be returned from `dlopen()`');
 
 	if (this._handle.isNull()) {
 		const err = this.error();
@@ -125,7 +125,7 @@ SecureDynamicLibrary.prototype.get = function (symbol: string): Buffer {
 	assert.strictEqual('string', typeof symbol);
 
 	const ptr = dlsym(this._handle, symbol);
-	assert(Buffer.isBuffer(ptr));
+	assert(ref.isAddress(ptr));
 
 	if (ptr.isNull()) {
 		return;

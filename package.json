@@ -59,8 +59,8 @@
 		"typescript": "^4.3.2"
 	},
 	"dependencies": {
-		"@breush/ffi-napi": "^4.0.3",
-		"@breush/ref-napi": "^4.0.9",
+		"ffi-napi": "npm:@breush/ffi-napi@^4.0.13",
+		"ref-napi": "npm:@breush/ref-napi@^4.0.9",
 		"ref-struct-di": "^1.1.1",
 		"ref-union-di": "^1.0.1"
 	}
